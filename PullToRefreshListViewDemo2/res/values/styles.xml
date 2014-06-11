@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+	<!-- 导航栏文字 -->
+	<style name="txt_app_title_style">
+		<item name="android:textColor">@color/white</item>
+		<item name="android:textSize">@dimen/txt_app_title</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">@dimen/btn_back_height</item>
+		<item name="android:shadowColor">#0F4689</item>
+		<item name="android:shadowDx">1</item>
+		<item name="android:shadowDy">1</item>
+		<item name="android:shadowRadius">3</item>
+	</style>
+
+	<!-- 头部进度条 -->
+	<style name="toolbar_progressbar_style" parent="@android:style/Widget.ProgressBar.Large">
+		<item name="android:indeterminateDrawable">@drawable/progressbar_drawable</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:layout_width">@dimen/top_bar_progressbar_width</item>
+		<item name="android:layout_height">@dimen/top_bar_progressbar_width</item>
+		<item name="android:visibility">gone</item>
+	</style>	
+	<!--主体进度条-->
+	<style name="body_progressbar_style" parent="@android:style/Widget.ProgressBar.Large">
+		<item name="android:indeterminateDrawable">@drawable/progressbar_moreloading</item>
+		<item name="android:layout_centerVertical">true</item>
+		<item name="android:layout_width">@dimen/body_progressbar_width</item>
+		<item name="android:layout_height">@dimen/body_progressbar_width</item>
+		<item name="android:visibility">gone</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:background">@color/transparent</item>
+	</style>
+	
+	<!-- 右上角刷新 -->
+	<style name="toolbar_fl_style">
+		<item name="android:layout_alignParentRight">true</item>
+		<item name="android:layout_centerVertical">true</item>
+		<item name="android:layout_marginRight">@dimen/top_bar_progressbar_margin_right</item>
+		<item name="android:layout_width">36dip</item>
+		<item name="android:layout_height">32dip</item>
+	</style>
+				
+	<!--Activity主题-->
+	<style name="ContentOverlay" parent="@android:style/Theme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>	
+</resources>
