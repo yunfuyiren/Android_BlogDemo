@@ -1,8 +1,7 @@
 package com.example.pulltorefreshlistviewdemo2;
 
 import java.util.ArrayList;
-
-import com.example.pulltorefreshlistviewdemo2.PullToRefreshListView.OnRefreshListener;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -10,25 +9,21 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
-import android.view.View.OnCreateContextMenuListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.pulltorefreshlistviewdemo2.PullToRefreshListView.OnRefreshListener;
 
 /**
  * @author wang
@@ -71,14 +66,16 @@ public class MainActivity extends Activity {
 	 * A placeholder fragment containing a simple view.
 	 */
 	public static class PlaceholderFragment extends Fragment {
-		ListView listView;
-		private MyAdapter adapter;
-		ArrayList<MarkerItem> list; 
+		List<Blog> list=new ArrayList<Blog>(); 
+		
 		int pageIndex = 1;// 页码
+		
+		ListView listView;
+		private BlogListAdapter adapter;// 数据源
 		
 		ProgressBar blogBody_progressBar;// 主题ListView加载框
 		ImageButton blog_refresh_btn;// 刷新按钮
-		ProgressBar blog_progress_bar;// 加载按钮
+		ProgressBar blog_progress_bar;// 加载进度条
 		
 		private LinearLayout viewFooter;// footer view
 		TextView tvFooterMore;// 底部更多显示
@@ -86,9 +83,8 @@ public class MainActivity extends Activity {
 		
 		Resources res;// 资源
 		private int lastItem;
-		
+		BlogDalHelper dbHelper;
 		public PlaceholderFragment() {
-			list=new ArrayList<MarkerItem>();
 			
 		}
 		@Override
@@ -103,6 +99,10 @@ public class MainActivity extends Activity {
 					false);
 			InitialControls(rootView);	
 			BindControls();
+			new PageTask(0, true).execute();
+			
+			//注册广播
+			？？？？
 			return rootView;
 		}
 		/**

@@ -19,6 +19,7 @@ import android.widget.ListView;
 
 /**
  * @author wang
+ * 多线程的应用AsyncTask与 Handler
  *notifyDataSetChanged()可以在修改适配器绑定的数组后，不用重新刷新Activity，
  *通知Activity更新ListView。今天的例子就是通过Handler AsyncTask两种方式来动态更新ListView.
  */
